@@ -1,5 +1,7 @@
-#include"solutions.h"
+#include"solutions.cpp"
 
 void main() {
-	s1();
+	Solutions so = Solutions();
+	printf("½á¹û£º%d",so.strStr("abcdefg","c"));
+	system("pause");
 }
