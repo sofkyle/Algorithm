@@ -2,6 +2,11 @@
 
 void main() {
 	Solutions so = Solutions();
-	printf("½á¹û£º%d",so.strStr("abcdefg","c"));
-	system("pause");
+	std::cout<< so.strStr("aaabaaabbbabaa","babb");
+	/*int* next = so.getNext("abac", 4);
+	for (int i = 0; i < 4; i++) {
+		printf("%d ", *(next+i));
+	}*/
+	char* a = new char;
+	scanf_s("%s",a);
 }
