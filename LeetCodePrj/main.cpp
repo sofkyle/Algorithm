@@ -1,12 +1,15 @@
-#include"solutions.cpp"
+#include "solutions.hpp"
 
+// #2
 void main() {
 	Solutions so = Solutions();
-	std::cout<< so.strStr("aaabaaabbbabaa","babb");
-	/*int* next = so.getNext("abac", 4);
-	for (int i = 0; i < 4; i++) {
-		printf("%d ", *(next+i));
-	}*/
-	char* a = new char;
-	scanf_s("%s",a);
+	cout << so.addBinary("101", "11111");
+	system("pause");
+}
+
+// #67
+void main67() {
+	Solutions so = Solutions();
+	cout << so.addBinary("101","11111");
+	system("pause");
 }
