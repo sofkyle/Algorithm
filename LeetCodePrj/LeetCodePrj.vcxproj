@@ -18,6 +18,15 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="solutions.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="solution28.cpp" />
+    <ClCompile Include="solution36.cpp" />
+    <ClCompile Include="solution67.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{EC5E9A73-D8BC-4EEB-B3CA-AEC961E60F15}</ProjectGuid>
     <RootNamespace>LeetCodePrj</RootNamespace>
@@ -109,18 +118,6 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="solution28.cpp" />
-    <ClCompile Include="solution36.cpp" />
-    <ClCompile Include="solution67.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="solutions.hpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="solutions.hpp" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
