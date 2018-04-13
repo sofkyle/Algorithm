@@ -32,4 +32,25 @@ public class Easy {
         int n = 3;
         System.out.println(countAndSay.countAndSay(n));
     }
+
+    @Test
+    public void maxSubArray() {
+        MaxSubArray maxSubArray = new MaxSubArray();
+        int[] nums = {-1};
+        System.out.println(maxSubArray.maxSubArray(nums));
+    }
+
+    @Test
+    public void lengthOfLastWord() {
+        LengthOfLastWord lengthOfLastWord = new LengthOfLastWord();
+        String str = " ";
+        System.out.println(lengthOfLastWord.lengthOfLastWord(str));
+    }
+
+    @Test
+    public void plusOne() {
+        PlusOne plusOne = new PlusOne();
+        int[] digits = {0};
+        System.out.println(plusOne.plusOne(digits));
+    }
 }
