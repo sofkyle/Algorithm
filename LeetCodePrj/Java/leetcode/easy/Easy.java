@@ -51,6 +51,6 @@ public class Easy {
     public void plusOne() {
         PlusOne plusOne = new PlusOne();
         int[] digits = {0};
-        System.out.println(plusOne.plusOne(digits));
+        System.out.println(Arrays.toString(plusOne.plusOne(digits)));
     }
 }
