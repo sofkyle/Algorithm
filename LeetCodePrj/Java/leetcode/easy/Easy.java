@@ -53,4 +53,11 @@ public class Easy {
         int[] digits = {0};
         System.out.println(Arrays.toString(plusOne.plusOne(digits)));
     }
+
+    @Test
+    public void sqrtX() {
+        SqrtX sqrtX = new SqrtX();
+        int x = 4;
+        System.out.println(sqrtX.sqrt(x));
+    }
 }
