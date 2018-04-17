@@ -60,4 +60,13 @@ public class Easy {
         int x = 4;
         System.out.println(sqrtX.sqrt(x));
     }
+
+    @Test
+    public void climbStairs() {
+        ClimbStairs climbStairs = new ClimbStairs();
+        int n = 44;
+        Long begin = System.currentTimeMillis();
+        System.out.println(climbStairs.climbStairs(n));
+        System.out.println(System.currentTimeMillis() - begin);
+    }
 }
