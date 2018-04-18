@@ -69,4 +69,19 @@ public class Easy {
         System.out.println(climbStairs.climbStairs(n));
         System.out.println(System.currentTimeMillis() - begin);
     }
+
+    @Test
+    public void deleteDuplicates() {
+        DeleteDuplicates.ListNode listNodeOne = new DeleteDuplicates.ListNode(1);
+        listNodeOne.next = new DeleteDuplicates.ListNode(1);
+        listNodeOne.next.next = new DeleteDuplicates.ListNode(1);
+        listNodeOne.next.next.next = new DeleteDuplicates.ListNode(1);
+        listNodeOne.next.next.next.next = new DeleteDuplicates.ListNode(1);
+        DeleteDuplicates deleteDuplicates = new DeleteDuplicates();
+        DeleteDuplicates.ListNode head = deleteDuplicates.deleteDuplicates(listNodeOne);
+        while (head != null) {
+            System.out.println(head.val);
+            head = head.next;
+        }
+    }
 }
