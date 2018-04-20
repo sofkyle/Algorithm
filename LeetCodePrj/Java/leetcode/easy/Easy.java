@@ -84,4 +84,15 @@ public class Easy {
             head = head.next;
         }
     }
+
+    @Test
+    public void mergeSortedArray() {
+        MergeSortedArray mergeSortedArray = new MergeSortedArray();
+        int[] nums1 = {1,2,3,0,0,0};
+        int m = 3;
+        int[] nums2 = {2,5,6};
+        int n = 3;
+        mergeSortedArray.mergeSortedArray(nums1, m, nums2, n);
+        System.out.println(Arrays.toString(nums1));
+    }
 }
