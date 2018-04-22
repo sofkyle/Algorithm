@@ -7,7 +7,13 @@ package leetcode.easy;
 public class SymmetricTree {
 
     public boolean isSymmetric(TreeNode root) {
-        return false;
+        if(root==null) return true;
+        return isMirror(root.left,root.right);
+    }
+
+    private boolean isMirror(TreeNode p, TreeNode q) {
+        if(p==null && q==null) return true;
+        return p != null && q != null && p.val==q.val && isMirror(p.left,q.right) && isMirror(p.right,q.left);
     }
 
     public static class TreeNode {

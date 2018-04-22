@@ -108,4 +108,21 @@ public class Easy {
 
         System.out.println(sameTree.isSameTree(treeOne, treeTwo));
     }
+
+    @Test
+    public void symmetricTree() {
+        SymmetricTree symmetricTree = new SymmetricTree();
+        SymmetricTree.TreeNode root = new SymmetricTree.TreeNode(1);
+
+        SymmetricTree.TreeNode left = new SymmetricTree.TreeNode(2);
+        left.right = new SymmetricTree.TreeNode(3);
+
+        SymmetricTree.TreeNode right = new SymmetricTree.TreeNode(2);
+        right.right = new SymmetricTree.TreeNode(3);
+
+        root.left = left;
+        root.right = right;
+
+        System.out.println(symmetricTree.isSymmetric(root));
+    }
 }
