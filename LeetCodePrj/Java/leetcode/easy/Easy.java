@@ -95,4 +95,17 @@ public class Easy {
         mergeSortedArray.mergeSortedArray(nums1, m, nums2, n);
         System.out.println(Arrays.toString(nums1));
     }
+
+    @Test
+    public void sameTree() {
+        SameTree sameTree = new SameTree();
+
+        SameTree.TreeNode treeOne = new SameTree.TreeNode(1);
+        treeOne.left = new SameTree.TreeNode(2);
+
+        SameTree.TreeNode treeTwo = new SameTree.TreeNode(1);
+        treeTwo.right = new SameTree.TreeNode(2);
+
+        System.out.println(sameTree.isSameTree(treeOne, treeTwo));
+    }
 }
