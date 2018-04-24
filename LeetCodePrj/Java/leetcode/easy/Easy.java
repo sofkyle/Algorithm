@@ -125,4 +125,20 @@ public class Easy {
 
         System.out.println(symmetricTree.isSymmetric(root));
     }
+
+    @Test
+    public void MaximumDepthOfBinaryTree() {
+        MaximumDepthOfBinaryTree maximumDepthOfBinaryTree = new MaximumDepthOfBinaryTree();
+
+        MaximumDepthOfBinaryTree.TreeNode root = new MaximumDepthOfBinaryTree.TreeNode(3);
+        root.left = new MaximumDepthOfBinaryTree.TreeNode(9);
+
+        MaximumDepthOfBinaryTree.TreeNode right = new MaximumDepthOfBinaryTree.TreeNode(20);
+        right.left = new MaximumDepthOfBinaryTree.TreeNode(15);
+        right.right = new MaximumDepthOfBinaryTree.TreeNode(7);
+
+        root.right = right;
+
+        System.out.println(maximumDepthOfBinaryTree.maxDepth(root));
+    }
 }
