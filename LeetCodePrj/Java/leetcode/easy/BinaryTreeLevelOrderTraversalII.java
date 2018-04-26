@@ -10,23 +10,24 @@ import java.util.Queue;
  */
 public class BinaryTreeLevelOrderTraversalII {
     public List<List<Integer>> levelOrderBottom(TreeNode root) {
-        Queue<TreeNode> queue = new LinkedList<TreeNode>();
-        List<List<Integer>> wrapList = new LinkedList<List<Integer>>();
+        List<List<Integer>> result = new LinkedList<>();
+        Queue<TreeNode> queue = new LinkedList<>();
 
-        if(root == null) return wrapList;
-
+        if(root == null) return result;
         queue.offer(root);
-        while(!queue.isEmpty()){
-            int levelNum = queue.size();
-            List<Integer> subList = new LinkedList<Integer>();
-            for(int i=0; i<levelNum; i++) {
-                if(queue.peek().left != null) queue.offer(queue.peek().left);
-                if(queue.peek().right != null) queue.offer(queue.peek().right);
-                subList.add(queue.poll().val);
+        while (!queue.isEmpty()) {
+            int length = queue.size();
+            List<Integer> tmpList = new LinkedList<>();
+            for(int i = 0; i < length; i++) {
+                TreeNode node = queue.poll();
+                if(node.left != null) queue.offer(node.left);
+                if(node.right != null) queue.offer(node.right);
+                tmpList.add(node.val);
             }
-            wrapList.add(0, subList);
+            result.add(0, tmpList);
         }
-        return wrapList;
+
+        return result;
     }
 
     public static class TreeNode {
