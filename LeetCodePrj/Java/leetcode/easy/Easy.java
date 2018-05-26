@@ -157,4 +157,27 @@ public class Easy {
 
         System.out.println(binaryTreeLevelOrderTraversalII.levelOrderBottom(root));
     }
+
+    @Test
+    public void ConvertSortedArraytoBinarySearchTree() {
+        int[] nums = new int[]{-10,-3,0,5,9};
+
+        ConvertSortedArraytoBinarySearchTree convertSortedArraytoBinarySearchTree = new ConvertSortedArraytoBinarySearchTree();
+        convertSortedArraytoBinarySearchTree.sortedArrayToBST(nums);
+    }
+
+    @Test
+    public void BalancedBinaryTree() {
+        BalancedBinaryTree.TreeNode root = new BalancedBinaryTree.TreeNode(3);
+        root.left = new BalancedBinaryTree.TreeNode(9);
+
+        BalancedBinaryTree.TreeNode rightTree = new BalancedBinaryTree.TreeNode(20);
+        rightTree.left = new BalancedBinaryTree.TreeNode(15);
+        rightTree.right = new BalancedBinaryTree.TreeNode(7);
+
+        root.right = rightTree;
+
+        BalancedBinaryTree balancedBinaryTree = new BalancedBinaryTree();
+        System.out.println(balancedBinaryTree.isBalanced(root));
+    }
 }

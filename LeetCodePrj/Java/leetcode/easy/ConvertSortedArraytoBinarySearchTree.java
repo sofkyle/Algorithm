@@ -6,6 +6,18 @@ package leetcode.easy;
  */
 public class ConvertSortedArraytoBinarySearchTree {
     public TreeNode sortedArrayToBST(int[] nums) {
+        TreeNode treeNode = arrayToBST(nums, 0, nums.length - 1);
+        return treeNode;
+    }
+
+    private TreeNode arrayToBST(int[] nums, int start, int end) {
+        if(start <= end) {
+            int pivot = (start + end) / 2;
+            TreeNode treeNode = new TreeNode(nums[pivot]);
+            treeNode.left = arrayToBST(nums, start, pivot - 1);
+            treeNode.right = arrayToBST(nums, pivot + 1, end);
+            return treeNode;
+        }
         return null;
     }
 
