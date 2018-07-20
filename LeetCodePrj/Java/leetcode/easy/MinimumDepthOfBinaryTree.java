@@ -5,7 +5,6 @@ package leetcode.easy;
  * @create 2018/7/20 8:41
  */
 public class MinimumDepthOfBinaryTree {
-    Integer minHeigth = Integer.MAX_VALUE;
 
     public int minDepth(TreeNode root) {
         if(root == null) return 0;
