@@ -8,7 +8,18 @@ public class MinimumDepthOfBinaryTree {
 
     public int minDepth(TreeNode root) {
         if(root == null) return 0;
-        return 1 + Math.min(minDepth(root.left), minDepth(root.right));
+
+        if(root.left == null && root.right == null) {
+            // Depth add one when current node is leaf node
+            return 1;
+        } else if(root.left == null) {
+            return 1 + minDepth(root.right);
+        } else if(root.right == null) {
+            return 1 + minDepth(root.left);
+        } else {
+            // current minimun depth is equal to one add minimum child tree depth
+            return 1 + Math.min(minDepth(root.left), minDepth(root.right));
+        }
     }
 
     public static class TreeNode {
