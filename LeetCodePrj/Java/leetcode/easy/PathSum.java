@@ -7,17 +7,19 @@ package leetcode.easy;
  */
 public class PathSum {
 
-    private int actualSum = 0;
-
     public boolean hasPathSum(TreeNode root, int sum) {
         if(root == null) {
             return false;
         }
 
+        sum -= root.val;
+
         if(root.left == null && root.right == null) {
-            actualSum += root.val;
-            if(actualSum == sum) return true;
-            else return false;
+            if(sum == 0) {
+                return true;
+            } else {
+                return false;
+            }
         } else if(root.left == null) {
             return hasPathSum(root.right, sum);
         } else if(root.right == null) {
