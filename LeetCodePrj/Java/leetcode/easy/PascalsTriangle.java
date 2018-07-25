@@ -13,7 +13,7 @@ public class PascalsTriangle {
     public List<List<Integer>> generate(int numRows) {
         List<List<Integer>> pascalsTriangele = new ArrayList<>();
 
-        if(numRows == 0) {
+        if(numRows <= 0) {
             return pascalsTriangele;
         }
         if(numRows == 1) {
