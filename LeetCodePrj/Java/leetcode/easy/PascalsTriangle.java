@@ -9,6 +9,7 @@ import java.util.List;
  * @author Kyle
  * @create 2018/7/24 23:12
  */
+// uploading: LeetCode can't log in
 public class PascalsTriangle {
     public List<List<Integer>> generate(int numRows) {
         List<List<Integer>> pascalsTriangele = new ArrayList<>();
