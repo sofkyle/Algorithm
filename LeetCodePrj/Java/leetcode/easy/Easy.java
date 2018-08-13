@@ -180,4 +180,10 @@ public class Easy {
         BalancedBinaryTree balancedBinaryTree = new BalancedBinaryTree();
         System.out.println(balancedBinaryTree.isBalanced(root));
     }
+
+    @Test
+    public void PascalsTriangleII() {
+        PascalsTriangleII pascalsTriangleII = new PascalsTriangleII();
+        System.out.println(pascalsTriangleII.getRow(3));
+    }
 }
