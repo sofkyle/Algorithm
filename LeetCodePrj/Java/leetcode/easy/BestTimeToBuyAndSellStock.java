@@ -5,7 +5,7 @@ package leetcode.easy;
  * @create 2018/8/19 12:46
  */
 public class BestTimeToBuyAndSellStock {
-    public int maxProfit(int[] prices) {
+    /*public int maxProfit(int[] prices) {
         int maxProfit = 0;
 
         // enumerate every possibility
@@ -17,6 +17,24 @@ public class BestTimeToBuyAndSellStock {
                     maxProfit = curPrice;
                 }
             }
+        }
+
+        return maxProfit;
+    }*/
+
+    /** Optimize **/
+    public int maxProfit(int[] prices) {
+        int maxProfit = 0;
+
+        if (prices == null || prices.length <= 1) {
+            return 0;
+        }
+
+        // current maximun profit = Max(current selling price - minimun buying price in the past, maximum profit in the past)
+        int minPrice = prices[0];
+        for(int i = 1; i < prices.length; i++) {
+            maxProfit = Math.max(prices[i] - minPrice, maxProfit);
+            minPrice = Math.min(prices[i], minPrice);
         }
 
         return maxProfit;
