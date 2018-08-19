@@ -159,7 +159,7 @@ public class Easy {
     }
 
     @Test
-    public void ConvertSortedArraytoBinarySearchTree() {
+    public void convertSortedArraytoBinarySearchTree() {
         int[] nums = new int[]{-10,-3,0,5,9};
 
         ConvertSortedArraytoBinarySearchTree convertSortedArraytoBinarySearchTree = new ConvertSortedArraytoBinarySearchTree();
@@ -167,7 +167,7 @@ public class Easy {
     }
 
     @Test
-    public void BalancedBinaryTree() {
+    public void balancedBinaryTree() {
         BalancedBinaryTree.TreeNode root = new BalancedBinaryTree.TreeNode(3);
         root.left = new BalancedBinaryTree.TreeNode(9);
 
@@ -182,8 +182,15 @@ public class Easy {
     }
 
     @Test
-    public void PascalsTriangleII() {
+    public void pascalsTriangleII() {
         PascalsTriangleII pascalsTriangleII = new PascalsTriangleII();
         System.out.println(pascalsTriangleII.getRow(3));
+    }
+
+    @Test
+    public void bestTimeToBuyAndSellStockII() {
+        int[] prices = new int[]{7,1,5,3,6,4};
+        BestTimeToBuyAndSellStockII bestTimeToBuyAndSellStockII = new BestTimeToBuyAndSellStockII();
+        bestTimeToBuyAndSellStockII.maxProfit(prices);
     }
 }
