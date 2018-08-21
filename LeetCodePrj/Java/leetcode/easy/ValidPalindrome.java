@@ -13,19 +13,21 @@ public class ValidPalindrome {
         s = s.toLowerCase();
 
         int i = 0;
-        int j = s.length();
+        int j = s.length() - 1;
 
         char[] chars = s.toCharArray();
         while (i < j) {
-            while (!isAlphaNumeric(chars[i])) {
+            while (!isAlphaNumeric(chars[i]) && i < j) {
                 i++;
             }
-            while (!isAlphaNumeric(chars[j])) {
+            while (!isAlphaNumeric(chars[j]) && i < j) {
                 j--;
             }
-            if(chars[i] != chars[j]) {
+            if(chars[i] != chars[j] || i > j) {
                 return false;
             }
+            i++;
+            j--;
         }
 
         return true;
