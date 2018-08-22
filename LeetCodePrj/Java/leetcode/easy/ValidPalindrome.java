@@ -17,17 +17,15 @@ public class ValidPalindrome {
 
         char[] chars = s.toCharArray();
         while (i < j) {
-            while (!isAlphaNumeric(chars[i]) && i < j) {
+            while (i < j && !isAlphaNumeric(chars[i])) {
                 i++;
             }
-            while (!isAlphaNumeric(chars[j]) && i < j) {
+            while (i < j && !isAlphaNumeric(chars[j])) {
                 j--;
             }
-            if(chars[i] != chars[j] || i > j) {
+            if(i < j && chars[i++] != chars[j--]) {
                 return false;
             }
-            i++;
-            j--;
         }
 
         return true;

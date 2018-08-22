@@ -193,4 +193,11 @@ public class Easy {
         BestTimeToBuyAndSellStockII bestTimeToBuyAndSellStockII = new BestTimeToBuyAndSellStockII();
         bestTimeToBuyAndSellStockII.maxProfit(prices);
     }
+
+    @Test
+    public void testValidPalindrome() {
+        String s = "A man, a plan, a canal: Panama";
+        ValidPalindrome validPalindrome = new ValidPalindrome();
+        System.out.println(validPalindrome.isPalindrome(s));
+    }
 }
