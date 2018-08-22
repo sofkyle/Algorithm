@@ -2,6 +2,7 @@ package leetcode.easy;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 /**
@@ -199,5 +200,12 @@ public class Easy {
         String s = "A man, a plan, a canal: Panama";
         ValidPalindrome validPalindrome = new ValidPalindrome();
         System.out.println(validPalindrome.isPalindrome(s));
+    }
+
+    @Test
+    public void testSize() {
+        int[] a = new int[2];
+        a = Arrays.copyOf(a, 4);
+        System.out.println(a.length);
     }
 }
