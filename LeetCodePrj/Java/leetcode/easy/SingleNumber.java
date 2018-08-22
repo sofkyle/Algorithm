@@ -1,14 +1,16 @@
 package leetcode.easy;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * @author Kyle
  * @create 2018/8/22 0:46
  */
 public class SingleNumber {
-    public int singleNumber(int[] nums) {
+    /*public int singleNumber(int[] nums) {
         Map<Integer, Object> map = new HashMap<>();
 
         for(int i : nums) {
@@ -26,5 +28,29 @@ public class SingleNumber {
         }
 
         return 0;
+    }*/
+
+    /** Set Version **/
+    /*public int singleNumber(int[] nums) {
+        Set set = new HashSet();
+        for(int i : nums) {
+            if(!set.remove(i)) {
+                set.add(i);
+            }
+        }
+
+        return (int) set.iterator().next();
+    }*/
+
+    /** Exclusive Or Verion **/
+    public int singleNumber(int[] nums) {
+        if(nums == null || nums.length == 0) return -1;
+
+        int x = 0;
+        for(int i : nums) {
+            x ^= i;
+        }
+
+        return x;
     }
 }
