@@ -8,16 +8,21 @@ import java.util.Arrays;
  */
 public class TwoSumII {
     public int[] twoSum(int[] numbers, int target) {
-        for(int i = 0; i < numbers.length - 1; i++) {
-            for(int j = i + 1; j < numbers.length; j++) {
-                if(numbers[i] + numbers[j] > target) {
-                    break;
-                }
-                if(numbers[i] + numbers[j] ==  target) {
-                    return new int[]{i + 1, j + 1};
-                }
+        int[] indice = new int[2];
+        if (numbers == null || numbers.length < 2) return indice;
+        int left = 0, right = numbers.length - 1;
+        while (left < right) {
+            int v = numbers[left] + numbers[right];
+            if (v == target) {
+                indice[0] = left + 1;
+                indice[1] = right + 1;
+                break;
+            } else if (v > target) {
+                right --;
+            } else {
+                left ++;
             }
         }
-        return null;
+        return indice;
     }
 }
