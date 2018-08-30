@@ -2,13 +2,14 @@ package leetcode.easy;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Stack;
 
 /**
  * @author Kyle
  * @create 2018/8/30 1:00
  */
 public class ExcelSheetColumnTitle {
-    private static final Integer radius = 26;
+    /*private static final Integer radius = 26;
 
     private final Map<Integer, Character> map;
 
@@ -31,5 +32,19 @@ public class ExcelSheetColumnTitle {
         }
 
         return columnTitle.toString();
+    }*/
+
+    public String convertToTitle(int n) {
+        Stack<Integer> intBuf = new Stack<>();
+        for(int t = n; t > 0; t = (t - 1) / 26){
+            intBuf.push((t - 1) % 26);
+        }
+
+        char[] charBuf = new char[intBuf.size()];
+        for(int i = 0; !intBuf.isEmpty(); i++){
+            charBuf[i] = (char)(intBuf.pop()+ 'A');
+        }
+
+        return new String(charBuf);
     }
 }
