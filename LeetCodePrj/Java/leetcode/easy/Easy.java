@@ -208,4 +208,17 @@ public class Easy {
         a = Arrays.copyOf(a, 4);
         System.out.println(a.length);
     }
+
+    @Test
+    public void testExcelSheetColumnNumber() {
+        String s = "AB";
+        ExcelSheetColumnNumber excelSheetColumnNumber = new ExcelSheetColumnNumber();
+        System.out.println(excelSheetColumnNumber.titleToNumber(s));
+    }
+
+    @Test
+    public void testFactorialTrailingZeros() {
+        FactorialTrailingZeroes factorialTrailingZeroes = new FactorialTrailingZeroes();
+        System.out.println(factorialTrailingZeroes.trailingZeroes(100));
+    }
 }
