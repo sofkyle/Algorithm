@@ -219,6 +219,6 @@ public class Easy {
     @Test
     public void testFactorialTrailingZeros() {
         FactorialTrailingZeroes factorialTrailingZeroes = new FactorialTrailingZeroes();
-        System.out.println(factorialTrailingZeroes.trailingZeroes(100));
+        System.out.println(factorialTrailingZeroes.trailingZeroes(1808548329));
     }
 }
