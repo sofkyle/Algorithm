@@ -6,20 +6,27 @@ package leetcode.easy.pagetwo;
  */
 public class HouseRobber {
     public int rob(int[] nums) {
-        if (nums == null) {
+        int length = nums.length;
+
+        if (nums == null || length == 0) {
             return 0;
         }
 
-        int length = nums.length;
+        int[] route = new int[length];
+        route[0] = nums[0];
+        route[1] = nums[1];
 
-        if(length == 1) {
-            return nums[0];
+        for(int i = 2; i < length; i++) {
+            for(int j = i - 2; j >= 0; j--) {
+                route[i] = Math.max(route[i], nums[i] + route[j]);
+            }
         }
 
-        if(length == 2) {
-            return Math.max(nums[0], nums[1]);
+        int maxRoute = 0;
+        for(int i = 0; i < length; i++) {
+            maxRoute = Math.max(route[i], maxRoute);
         }
 
-        return 0;
+        return maxRoute;
     }
 }
