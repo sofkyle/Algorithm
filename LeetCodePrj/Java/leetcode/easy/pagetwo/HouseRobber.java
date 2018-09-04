@@ -12,21 +12,14 @@ public class HouseRobber {
             return 0;
         }
 
-        int[] route = new int[length];
-        route[0] = nums[0];
-        route[1] = nums[1];
+        int[] route = new int[length + 1];
+        route[0] = 0;
+        route[1] = nums[0];
 
-        for(int i = 2; i < length; i++) {
-            for(int j = i - 2; j >= 0; j--) {
-                route[i] = Math.max(route[i], nums[i] + route[j]);
-            }
+        for(int i = 2; i < length + 1; i++) {
+            route[i] = Math.max(route[i - 1], nums[i - 1] + route[i - 2]);
         }
 
-        int maxRoute = 0;
-        for(int i = 0; i < length; i++) {
-            maxRoute = Math.max(route[i], maxRoute);
-        }
-
-        return maxRoute;
+        return route[length];
     }
 }
