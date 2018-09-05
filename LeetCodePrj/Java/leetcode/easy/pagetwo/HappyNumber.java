@@ -13,9 +13,9 @@ public class HappyNumber {
             slow = sumSquareOfDigits(slow);
             fast = sumSquareOfDigits(fast);
             fast = sumSquareOfDigits(fast);
-        } while (slow != fast && slow != 1);
+        } while (slow != fast && fast != 1);
 
-        if(slow == 1) {
+        if(fast == 1) {
             return true;
         }
         return false;
