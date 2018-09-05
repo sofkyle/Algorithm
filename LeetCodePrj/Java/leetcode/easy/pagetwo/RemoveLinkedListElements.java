@@ -8,7 +8,24 @@ import leetcode.common.ListNode;
  */
 public class RemoveLinkedListElements {
     public ListNode removeElements(ListNode head, int val) {
+        while (head != null && head.val == val) {
+            head = head.next;
+        }
 
-        return null;
+        if (head == null) return null;
+
+        ListNode behind = head;
+        ListNode front = head.next;
+
+        while (front != null) {
+            if (front.val == val) {
+                behind.next = front;
+            } else {
+                behind = behind.next;
+            }
+            front = front.next;
+        }
+
+        return head;
     }
 }
