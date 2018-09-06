@@ -8,32 +8,19 @@ import java.util.Set;
  * @create 2018/9/6 23:27
  */
 public class CountPrimes {
-    private static Set<Integer> nonPrimesCache = new HashSet<>();
-
     public int countPrimes(int n) {
         int count = 0;
+        boolean[] nonPrimes = new boolean[n];
+
         for (int i = 2; i < n; i++) {
-            if(isPrimes(i)) {
+            if (!nonPrimes[i]) {
                 count++;
+                for (int j = 2; i * j < n; j++) {
+                    nonPrimes[i * j] = true;
+                }
             }
         }
 
         return count;
-    }
-
-    private boolean isPrimes(int num) {
-        if (num <= 1 || nonPrimesCache.contains(num)) {
-            return false;
-        }
-
-        int i = 2;
-        while (i * i <= num) {
-            if (num % i == 0) {
-                nonPrimesCache.add(num);
-                return false;
-            }
-            i++;
-        }
-        return true;
     }
 }

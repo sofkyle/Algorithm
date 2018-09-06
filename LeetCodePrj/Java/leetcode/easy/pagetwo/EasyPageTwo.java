@@ -10,6 +10,6 @@ public class EasyPageTwo {
     @Test
     public void testCountPrimes() {
         CountPrimes countPrimes = new CountPrimes();
-        countPrimes.countPrimes(10);
+        System.out.println(countPrimes.countPrimes(10));
     }
 }
