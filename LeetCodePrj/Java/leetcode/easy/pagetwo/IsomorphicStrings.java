@@ -13,22 +13,16 @@ import java.util.Set;
 public class IsomorphicStrings {
     public boolean isIsomorphic(String s, String t) {
         Map<Character, Character> alphabetMap = new HashMap<>();
-        Set<Character> check = new HashSet<>();
-
-        char[] c1 = s.toCharArray();
-        char[] c2 = t.toCharArray();
 
         for (int i = 0; i < s.length(); i++) {
-            if (alphabetMap.get(c1[i]) != null) {
-                if (alphabetMap.get(c1[i]) != c2[i]) {
+            if (alphabetMap.containsKey(s.charAt(i))) {
+                if (!alphabetMap.get(s.charAt(i)).equals(t.charAt(i))) {
                     return false;
                 }
+            } else if (alphabetMap.containsValue(t.charAt(i))) {
+                return false;
             } else {
-                if (check.contains(c2[i])) {
-                    return false;
-                }
-                alphabetMap.put(c1[i], c2[i]);
-                check.add(c2[i]);
+                alphabetMap.put(s.charAt(i), t.charAt(i));
             }
         }
 
