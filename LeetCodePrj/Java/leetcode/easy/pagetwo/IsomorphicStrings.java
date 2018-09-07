@@ -1,7 +1,10 @@
 package leetcode.easy.pagetwo;
 
 import java.util.HashSet;
+import java.util.Map;
+import java.util.HashMap;
 import java.util.Set;
+
 
 /**
  * @author Kyle
@@ -9,19 +12,23 @@ import java.util.Set;
  */
 public class IsomorphicStrings {
     public boolean isIsomorphic(String s, String t) {
-        Set<Character> s1 = new HashSet<>();
-        Set<Character> s2 = new HashSet<>();
+        Map<Character, Character> alphabetMap = new HashMap<>();
+        Set<Character> check = new HashSet<>();
 
         char[] c1 = s.toCharArray();
         char[] c2 = t.toCharArray();
 
         for (int i = 0; i < s.length(); i++) {
-            if (s1.contains(c1[i])) {
-                if (!s2.contains(c2[i])) return false;
+            if (alphabetMap.get(c1[i]) != null) {
+                if (alphabetMap.get(c1[i]) != c2[i]) {
+                    return false;
+                }
             } else {
-                if (s2.contains(c2[i])) return false;
-                s1.add(c1[i]);
-                s2.add(c2[i]);
+                if (check.contains(c2[i])) {
+                    return false;
+                }
+                alphabetMap.put(c1[i], c2[i]);
+                check.add(c2[i]);
             }
         }
 
