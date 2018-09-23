@@ -11,21 +11,11 @@ import java.util.Queue;
  */
 public class InvertBinaryTree {
     public TreeNode invertTree(TreeNode root) {
-        Queue<TreeNode> queue = new LinkedList<>();
+        if (root == null) return null;
 
-        queue.add(root);
-        while (!queue.isEmpty()) {
-            TreeNode tmpNode = queue.poll();
-
-            if (tmpNode == null) continue;
-
-            queue.offer(tmpNode.right);
-            queue.offer(tmpNode.left);
-
-            TreeNode inverseNode = tmpNode.left;
-            tmpNode.left = tmpNode.right;
-            tmpNode.right = inverseNode;
-        }
+        TreeNode tempNode = root.left;
+        root.left = invertTree(root.right);
+        root.right = invertTree(tempNode);
 
         return root;
     }
