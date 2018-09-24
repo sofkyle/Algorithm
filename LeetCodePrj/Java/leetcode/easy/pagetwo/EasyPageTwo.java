@@ -12,4 +12,10 @@ public class EasyPageTwo {
         CountPrimes countPrimes = new CountPrimes();
         System.out.println(countPrimes.countPrimes(10));
     }
+
+    @Test
+    public void testPowerOfTwo() {
+        PowerOfTwo powerOfTwo = new PowerOfTwo();
+        System.out.println(powerOfTwo.isPowerOfTwo(1));
+    }
 }
