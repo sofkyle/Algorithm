@@ -18,4 +18,14 @@ public class EasyPageTwo {
         PowerOfTwo powerOfTwo = new PowerOfTwo();
         System.out.println(powerOfTwo.isPowerOfTwo(1));
     }
+
+    @Test
+    public void testMyQueue() {
+        MyQueue myQueue = new MyQueue();
+        myQueue.push(1);
+        myQueue.push(2);
+        myQueue.peek();
+        myQueue.pop();
+        myQueue.empty();
+    }
 }
