@@ -1,5 +1,6 @@
 package leetcode.easy.pagetwo;
 
+import leetcode.common.ListNode;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -27,5 +28,13 @@ public class EasyPageTwo {
         myQueue.peek();
         myQueue.pop();
         myQueue.empty();
+    }
+
+    @Test
+    public void testPalindromeLinkedList() {
+        ListNode head = new ListNode(1);
+        head.next = new ListNode(2);
+        PalindromeLinkedList palindromeLinkedList = new PalindromeLinkedList();
+        palindromeLinkedList.isPalindrome(head);
     }
 }
