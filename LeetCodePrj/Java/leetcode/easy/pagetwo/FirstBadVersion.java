@@ -9,20 +9,17 @@ public class FirstBadVersion {
         int head = 1;
         int tail = n;
         while (head < tail) {
-            if (!isBadVersion(head) && isBadVersion(head + 1)) {
-                head++;
-                break;
-            }
-            if (isBadVersion((head + tail) / 2)) {
-                tail = (head + tail) / 2;
+            int mid = head +(tail - head) / 2;
+            if (isBadVersion(mid)) {
+                tail = mid;
             } else {
-                head = (head + tail) / 2;
+                head = mid + 1;
             }
         }
         return head;
     }
 
     private boolean isBadVersion(int version) {
-        return false;
+        return version >= 1702766719;
     }
 }

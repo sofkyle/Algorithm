@@ -37,4 +37,10 @@ public class EasyPageTwo {
         PalindromeLinkedList palindromeLinkedList = new PalindromeLinkedList();
         palindromeLinkedList.isPalindrome(head);
     }
+
+    @Test
+    public void testFirstBadVersion() {
+        FirstBadVersion firstBadVersion = new FirstBadVersion();
+        System.out.println(firstBadVersion.firstBadVersion(2126753390));
+    }
 }
