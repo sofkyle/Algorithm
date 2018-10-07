@@ -7,24 +7,16 @@ package leetcode.easy.pagetwo;
 public class MoveZeroes {
     public void moveZeroes(int[] nums) {
         int i = 0;
-
-        while (i < nums.length - 1) {
-            int j = i + 1;
-            if (nums[i] != 0) {
-                i++;
-                j++;
+        int j = 0;
+        while (j < nums.length) {
+            if (nums[j] != 0) {
+                nums[i++] = nums[j++];
             } else {
-                while(j < nums.length && nums[j] == 0) {
-                    j++;
-                }
-                if (j == nums.length) {
-                    i++;
-                    continue;
-                }
-                nums[i] = nums[j];
-                nums[j] = 0;
-                i++;
+                j++;
             }
+        }
+        for (; i < nums.length; i++) {
+            nums[i] = 0;
         }
     }
 }
