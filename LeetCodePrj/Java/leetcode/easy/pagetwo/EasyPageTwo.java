@@ -43,4 +43,10 @@ public class EasyPageTwo {
         FirstBadVersion firstBadVersion = new FirstBadVersion();
         System.out.println(firstBadVersion.firstBadVersion(2126753390));
     }
+
+    @Test
+    public void testWordPattern() {
+        WordPattern wordPattern = new WordPattern();
+        wordPattern.wordPattern("abba", "dog dog dog dog");
+    }
 }
