@@ -49,4 +49,10 @@ public class EasyPageTwo {
         WordPattern wordPattern = new WordPattern();
         wordPattern.wordPattern("abba", "dog dog dog dog");
     }
+
+    @Test
+    public void testIntersectionOfTwoArrays() {
+        IntersectionOfTwoArrays intersectionOfTwoArrays = new IntersectionOfTwoArrays();
+        intersectionOfTwoArrays.intersection(new int[]{1,2,2,1}, new int[]{2, 2});
+    }
 }
