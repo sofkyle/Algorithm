@@ -55,4 +55,10 @@ public class EasyPageTwo {
         IntersectionOfTwoArrays intersectionOfTwoArrays = new IntersectionOfTwoArrays();
         intersectionOfTwoArrays.intersection(new int[]{1,2,2,1}, new int[]{2, 2});
     }
+
+    @Test
+    public void testIsPerfectSquare() {
+        ValidPerfectSquare validPerfectSquare = new ValidPerfectSquare();
+        validPerfectSquare.isPerfectSquare(5);
+    }
 }
