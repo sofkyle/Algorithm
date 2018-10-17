@@ -6,10 +6,13 @@ public class ValidPerfectSquare {
 
         int left = 1;
         int right = num;
-        while (left <= right - 1) {
+        while (left < right - 1) {
             int mid = left + (right - left) / 2;
-            if (num / mid == mid && num % mid == 0) {
-                return true;
+            if (num / mid == mid) {
+                if (num % mid == 0) {
+                    return true;
+                }
+                left = mid;
             }
             if (num / mid < mid) {
                 right = mid;
