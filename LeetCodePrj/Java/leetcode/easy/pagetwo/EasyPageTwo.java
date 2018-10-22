@@ -61,4 +61,10 @@ public class EasyPageTwo {
         ValidPerfectSquare validPerfectSquare = new ValidPerfectSquare();
         validPerfectSquare.isPerfectSquare(5);
     }
+
+    @Test
+    public void testFirstUniqueCharacterInAString() {
+        FirstUniqueCharacterInAString firstUniqueCharacterInAString = new FirstUniqueCharacterInAString();
+        firstUniqueCharacterInAString.firstUniqChar("leetcode");
+    }
 }
