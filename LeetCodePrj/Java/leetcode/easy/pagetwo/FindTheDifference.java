@@ -2,13 +2,16 @@ package leetcode.easy.pagetwo;
 
 public class FindTheDifference {
     public char findTheDifference(String s, String t) {
-        for(Character charT : t.toCharArray()) {
-            if (s.contains(charT.toString())) {
-                s = s.replaceFirst(charT.toString(), "");
-            } else {
-                return charT;
-            }
+        int sumS = 0;
+        int sumT = 0;
+
+        for (Character cs : s.toCharArray()) {
+            sumS += cs;
         }
-        return 0;
+        for (Character ct : t.toCharArray()) {
+            sumT += ct;
+        }
+
+        return (char)(sumT - sumS);
     }
 }
