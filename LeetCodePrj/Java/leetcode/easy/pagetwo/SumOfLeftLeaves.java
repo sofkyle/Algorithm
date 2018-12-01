@@ -8,15 +8,11 @@ public class SumOfLeftLeaves {
     public int sumOfLeftLeaves(TreeNode root) {
         if (root == null) return sum;
 
-        if (root.left != null) {
-            if (root.left.left == null && root.left.right == null) {
-                sum += root.left.val;
-            }
-            sumOfLeftLeaves(root.left);
+        if (root.left != null && root.left.left == null && root.left.right == null) {
+            sum += root.left.val;
         }
-        if (root.right != null) {
-            sumOfLeftLeaves(root.right);
-        }
+        sumOfLeftLeaves(root.left);
+        sumOfLeftLeaves(root.right);
 
         return sum;
     }
