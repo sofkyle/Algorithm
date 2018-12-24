@@ -9,4 +9,10 @@ public class EasyPage3 {
         ThirdMaximumNumber thirdMaximumNumber = new ThirdMaximumNumber();
         System.out.println(thirdMaximumNumber.thirdMax(intArray));
     }
+
+    @Test
+    public void testAddStrings() {
+        AddStrings addStrings = new AddStrings();
+        System.out.println(addStrings.addStrings("0", "0"));
+    }
 }

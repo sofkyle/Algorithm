@@ -6,20 +6,18 @@ public class AddStrings {
 
         Integer carryBit = 0;
 
-        Integer maxLen = Math.max(num1.length(), num2.length());
-        Integer minLen = Math.min(num1.length(), num2.length());
+        String longStr = num1.length() > num2.length() ? num1 : num2;
+        String shortStr = num1.length() > num2.length() ? num2 : num1;
 
-        char[] num1CharArr = num1.toCharArray();
-        char[] num2CharArr = num2.toCharArray();
-
-        for (int i = 0; i < maxLen; i++) {
-            if (i < minLen || carryBit != 0) {
-                sum = (Integer.valueOf(num1CharArr[i]) + Integer.valueOf(num2CharArr[i])
+        for (int i = 0; i < longStr.length(); i++) {
+            if (i >= shortStr.length() && carryBit == 0) break;
+            if (i < shortStr.length()) {
+                sum = (Integer.parseInt(String.valueOf(longStr.charAt(i)))
+                        + Integer.parseInt(String.valueOf(shortStr.charAt(i)))
                         + carryBit) % 10 + sum;
-                carryBit = (Integer.valueOf(num1CharArr[i]) + Integer.valueOf(num2CharArr[i])
+                carryBit = (Integer.parseInt(String.valueOf(longStr.charAt(i)))
+                        + Integer.parseInt(String.valueOf(shortStr.charAt(i)))
                         + carryBit) / 10;
-            } else {
-                break;
             }
         }
 
