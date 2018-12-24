@@ -9,16 +9,16 @@ public class AddStrings {
         String longStr = num1.length() > num2.length() ? num1 : num2;
         String shortStr = num1.length() > num2.length() ? num2 : num1;
 
-        for (int i = 0; i < longStr.length(); i++) {
-            if (i >= shortStr.length() && carryBit == 0) break;
-            if (i < shortStr.length()) {
-                sum = (Integer.parseInt(String.valueOf(longStr.charAt(i)))
-                        + Integer.parseInt(String.valueOf(shortStr.charAt(i)))
-                        + carryBit) % 10 + sum;
-                carryBit = (Integer.parseInt(String.valueOf(longStr.charAt(i)))
-                        + Integer.parseInt(String.valueOf(shortStr.charAt(i)))
-                        + carryBit) / 10;
-            }
+        int i = longStr.length() - 1;
+        int j = shortStr.length() - 1;
+        while (i >= 0 || carryBit != 0) {
+            int a = i >= 0 ? Integer.parseInt(String.valueOf(longStr.charAt(i))) : 0;
+            int b = j >= 0 ? Integer.parseInt(String.valueOf(shortStr.charAt(j))) : 0;
+            sum = (a + b + carryBit) % 10 + sum;
+            carryBit = (a + b + carryBit) / 10;
+
+            i--;
+            j--;
         }
 
         return sum;

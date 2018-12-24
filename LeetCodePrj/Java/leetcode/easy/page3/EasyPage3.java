@@ -13,6 +13,6 @@ public class EasyPage3 {
     @Test
     public void testAddStrings() {
         AddStrings addStrings = new AddStrings();
-        System.out.println(addStrings.addStrings("0", "0"));
+        System.out.println(addStrings.addStrings("98", "9"));
     }
 }
