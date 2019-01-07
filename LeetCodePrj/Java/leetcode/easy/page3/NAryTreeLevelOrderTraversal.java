@@ -30,7 +30,7 @@ public class NAryTreeLevelOrderTraversal {
         return traversal;
     }
 
-    class Node {
+    static class Node {
         public int val;
         public List<Node> children;
 

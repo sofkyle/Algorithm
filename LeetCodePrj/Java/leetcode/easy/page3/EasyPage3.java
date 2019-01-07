@@ -2,6 +2,8 @@ package leetcode.easy.page3;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
+
 public class EasyPage3 {
     @Test
     public void testThirdMaximumNumber() {
@@ -14,5 +16,31 @@ public class EasyPage3 {
     public void testAddStrings() {
         AddStrings addStrings = new AddStrings();
         System.out.println(addStrings.addStrings("98", "9"));
+    }
+
+    @Test
+    public void testNAryTreeLevelOrderTraversal() {
+        NAryTreeLevelOrderTraversal.Node sixth = new NAryTreeLevelOrderTraversal.Node();
+        sixth.val = 6;
+
+        NAryTreeLevelOrderTraversal.Node fifth = new NAryTreeLevelOrderTraversal.Node();
+        fifth.val = 5;
+
+        NAryTreeLevelOrderTraversal.Node fourth = new NAryTreeLevelOrderTraversal.Node();
+        fourth.val = 4;
+
+        NAryTreeLevelOrderTraversal.Node third = new NAryTreeLevelOrderTraversal.Node();
+        third.val = 2;
+
+        NAryTreeLevelOrderTraversal.Node second = new NAryTreeLevelOrderTraversal.Node();
+        second.val = 3;
+        second.children = Arrays.asList(fifth, sixth);
+
+        NAryTreeLevelOrderTraversal.Node first = new NAryTreeLevelOrderTraversal.Node();
+        first.val = 1;
+        first.children = Arrays.asList(second, third, fourth);
+
+        NAryTreeLevelOrderTraversal nAryTreeLevelOrderTraversal = new NAryTreeLevelOrderTraversal();
+        System.out.println(nAryTreeLevelOrderTraversal.levelOrder(first));
     }
 }
