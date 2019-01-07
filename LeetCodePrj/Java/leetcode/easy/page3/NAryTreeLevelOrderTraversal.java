@@ -25,6 +25,8 @@ public class NAryTreeLevelOrderTraversal {
                     queue.offer(curNode.children.get(j));
                 }
             }
+
+            traversal.add(curLevel);
         }
 
         return traversal;
