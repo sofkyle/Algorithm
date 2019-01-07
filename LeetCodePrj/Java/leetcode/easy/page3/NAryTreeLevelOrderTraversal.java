@@ -7,12 +7,14 @@ import java.util.Queue;
 public class NAryTreeLevelOrderTraversal {
 
     public List<List<Integer>> levelOrder(Node root) {
+        if (root == null) return new LinkedList<>();
+
         List<List<Integer>> traversal = new LinkedList<>();
         Queue<Node> queue = new LinkedList<>();
 
         // offer the root node
         queue.offer(root);
-        while (queue.size() != 0) {
+        while (!queue.isEmpty()) {
             int curLevelSize = queue.size();
             List<Integer> curLevel = new LinkedList<>();
 
