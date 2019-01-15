@@ -43,4 +43,11 @@ public class EasyPage3 {
         NAryTreeLevelOrderTraversal nAryTreeLevelOrderTraversal = new NAryTreeLevelOrderTraversal();
         System.out.println(nAryTreeLevelOrderTraversal.levelOrder(first));
     }
+
+    @Test
+    public void testNumberOfSegmentsInAString() {
+        NumberOfSegmentsInAString numberOfSegmentsInAString = new NumberOfSegmentsInAString();
+        String s = "Hello, my name is John";
+        System.out.println(numberOfSegmentsInAString.countSegments(s));
+    }
 }

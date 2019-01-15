@@ -16,6 +16,7 @@ public class NumberOfSegmentsInAString {
                     && s.charAt(i) < 'A' || s.charAt(i) > 'Z') {
                 startCount = true;
             }
+            i++;
         }
 
         return numOfSegments;
