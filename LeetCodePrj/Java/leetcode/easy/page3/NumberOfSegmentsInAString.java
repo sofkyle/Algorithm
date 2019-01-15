@@ -7,13 +7,11 @@ public class NumberOfSegmentsInAString {
         int i = 0;
         boolean startCount = true;
         while (i < s.length()) {
-            if (startCount && (s.charAt(i) >= 'a' && s.charAt(i) <= 'z'
-                    || s.charAt(i) >= 'A' && s.charAt(i) <= 'Z')) {
+            if (startCount && (s.charAt(i) != ' ')) {
                 numOfSegments++;
                 startCount = false;
             }
-            if (s.charAt(i) < 'a' || s.charAt(i) > 'z'
-                    && s.charAt(i) < 'A' || s.charAt(i) > 'Z') {
+            if (s.charAt(i) == ' ') {
                 startCount = true;
             }
             i++;
