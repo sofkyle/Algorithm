@@ -50,4 +50,12 @@ public class EasyPage3 {
         String s = "Hello, my name is John";
         System.out.println(numberOfSegmentsInAString.countSegments(s));
     }
+
+    @Test
+    public void FindAllAnagramsInAString() {
+        FindAllAnagramsInAString findAllAnagramsInAString = new FindAllAnagramsInAString();
+        String s = "af";
+        String p = "be";
+        System.out.println(findAllAnagramsInAString.findAnagrams(s, p));
+    }
 }
