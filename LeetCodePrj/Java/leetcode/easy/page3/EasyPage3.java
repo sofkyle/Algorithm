@@ -54,8 +54,8 @@ public class EasyPage3 {
     @Test
     public void FindAllAnagramsInAString() {
         FindAllAnagramsInAString findAllAnagramsInAString = new FindAllAnagramsInAString();
-        String s = "af";
-        String p = "be";
+        String s = "cbaebabacd";
+        String p = "abc";
         System.out.println(findAllAnagramsInAString.findAnagrams(s, p));
     }
 }

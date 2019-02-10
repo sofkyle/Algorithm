@@ -6,31 +6,31 @@ import java.util.List;
 
 public class FindAllAnagramsInAString {
     public List<Integer> findAnagrams(String s, String p) {
-        List<Integer> result = new LinkedList<>();
+        final char[] ss = s.toCharArray();
+        final char[] pp = p.toCharArray();
 
-        int sLen = s.length();
-        int pLen = p.length();
+        int[] target = new int[128];
+        for (char c : pp) target[c]++;
 
-        char[] pOrder = p.toCharArray();
-        Arrays.sort(pOrder);
+        List<Integer> ans = new LinkedList<>();
+        int l = 0; int r =0 ;
+        int[] cnt = new int[128];
+        int total = 0;
+        while (r < ss.length) {
+            cnt[ss[r]]++;
+            total++;
 
-        for (int i = 0; i <= sLen - pLen; i++) {
-            char[] sOrder = s.substring(i, i + pLen).toCharArray();
-            Arrays.sort(sOrder);
-
-            boolean isAnagram = true;
-            for (int j = 0; j < pLen; j++) {
-                if (sOrder[j] != pOrder[j]) {
-                    isAnagram = false;
-                    break;
-                }
+            while (cnt[ss[r]] > target[ss[r]]) {
+                cnt[ss[l++]]--;
+                total--;
             }
 
-            if (isAnagram) {
-                result.add(i);
-            }
+            if (total == pp.length) ans.add(l);
+
+            r++;
         }
 
-        return result;
+        return ans;
     }
+
 }
