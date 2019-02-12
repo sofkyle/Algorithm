@@ -58,4 +58,10 @@ public class EasyPage3 {
         String p = "abc";
         System.out.println(findAllAnagramsInAString.findAnagrams(s, p));
     }
+
+    @Test
+    public void testArrangingCoins() {
+        ArrangingCoins arrangingCoins = new ArrangingCoins();
+        System.out.println(arrangingCoins.arrangeCoins(2147483647));
+    }
 }
