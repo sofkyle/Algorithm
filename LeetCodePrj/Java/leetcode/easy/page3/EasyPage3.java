@@ -64,4 +64,11 @@ public class EasyPage3 {
         ArrangingCoins arrangingCoins = new ArrangingCoins();
         System.out.println(arrangingCoins.arrangeCoins(2147483647));
     }
+
+    @Test
+    public void testStringCompression() {
+        StringCompression stringCompression = new StringCompression();
+        char[] chars = new char[] {'a','b','b','c','c','c'};
+        stringCompression.compress(chars);
+    }
 }
