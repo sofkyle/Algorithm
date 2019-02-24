@@ -71,4 +71,13 @@ public class EasyPage3 {
         char[] chars = new char[] {'a','b','b','c','c','c'};
         stringCompression.compress(chars);
     }
+
+    @Test
+    public void testNumberOfBoomerangs() {
+        NumberOfBoomerangs numberOfBoomerangs = new NumberOfBoomerangs();
+        int[][] array = new int[][] {
+                {0,0},{1,0},{2,0},{0, -1}
+        };
+        System.out.println(numberOfBoomerangs.numberOfBoomerangs(array));
+    }
 }
