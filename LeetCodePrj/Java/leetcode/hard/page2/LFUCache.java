@@ -8,7 +8,7 @@ public class LFUCache {
     // <Key, Counts>
     HashMap<Integer, Integer> counts;
     // <Counts, Key LinkedList>
-    HashMap<Integer, LinkedHashSet<Integer>> lists;
+    HashMap<Integer, LinkedHashSet<Integer>> order;
     int capacity;
     int min = 1;
 
@@ -16,8 +16,8 @@ public class LFUCache {
         this.capacity = capacity;
         vals = new HashMap<>();
         counts = new HashMap<>();
-        lists = new HashMap<>();
-        lists.put(1, new LinkedHashSet<>());
+        order = new HashMap<>();
+        order.put(1, new LinkedHashSet<>());
     }
 
     public int get(int key) {
@@ -25,24 +25,52 @@ public class LFUCache {
 
         int oldCount = counts.get(key);
         counts.put(key, oldCount + 1);
-        if (oldCount == min && lists.get(oldCount).size() == 1) {
+        order.get(oldCount).remove(key);
+        if (oldCount == min && order.get(oldCount).size() == 0) {
             min = oldCount + 1;
         }
-        lists.get(oldCount + 1).add(key);
+        if (!order.containsKey(oldCount + 1)) {
+            order.put(oldCount + 1, new LinkedHashSet<>());
+        }
+        order.get(oldCount + 1).add(key);
 
         return vals.get(key);
     }
 
-    public void set(int key, int value) {
+    public void put(int key, int value) {
+        if (capacity == 0) return;
         if (vals.containsKey(key) || vals.size() < capacity) {
             vals.put(key, value);
-            counts.put(key, counts.get(key) + 1);
-            lists.get(counts.get(key)).add(key);
+            int oldCount = counts.getOrDefault(key, 0);
+            counts.put(key, oldCount + 1);
+
+            if (!order.containsKey(oldCount + 1)) {
+                order.put(oldCount + 1, new LinkedHashSet<>());
+            }
+            order.get(oldCount + 1).add(key);
+            if (oldCount == 0) {
+                min = 1;
+            } else {
+                order.get(oldCount).remove(key);
+                if (oldCount == min && order.get(oldCount).size() == 0) {
+                    min = oldCount + 1;
+                }
+            }
         } else {
-            int removeKey = lists.get(min).iterator().next();
+            // evict
+            int removeKey = order.get(min).iterator().next();
             vals.remove(removeKey);
             counts.remove(removeKey);
-            lists.get(min).remove(lists.get(min).iterator().next());
+            order.get(min).remove(removeKey);
+
+
+            min = 1;
+            vals.put(key, value);
+            counts.put(key, min);
+            if (!order.containsKey(min)) {
+                order.put(min, new LinkedHashSet<>());
+            }
+            order.get(min).add(key);
         }
     }
 }
