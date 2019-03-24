@@ -1,16 +1,17 @@
 package sorting
 
 func InsertingSort(arr []int) []int {
-	for i := 0; i < len(arr)-1; i++ {
-		for j := i + 1; j > 0; j-- {
-			if arr[j] < arr[j-1] {
-				tmp := arr[j-1]
-				arr[j-1] = arr[j]
-				arr[j] = tmp
+	for i := 1; i < len(arr); i++ {
+		val := arr[i]
+		j := i - 1
+		for ; j >= 0; j-- {
+			if arr[j] > val {
+				arr[j+1] = arr[j]
 			} else {
 				break
 			}
 		}
+		arr[j+1] = val
 	}
 
 	return arr
