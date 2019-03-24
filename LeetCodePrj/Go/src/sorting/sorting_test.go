@@ -12,5 +12,9 @@ func TestSelectSort(t *testing.T) {
 }
 
 func TestInsertingSort(t *testing.T) {
-	fmt.Print(InsertingSort(Arr))
+	fmt.Println(InsertingSort(Arr))
+}
+
+func TestBubbleSort(t *testing.T) {
+	fmt.Println(BubbleSort(Arr))
 }
