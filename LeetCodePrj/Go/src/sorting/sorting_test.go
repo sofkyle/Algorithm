@@ -18,3 +18,8 @@ func TestInsertingSort(t *testing.T) {
 func TestBubbleSort(t *testing.T) {
 	fmt.Println(BubbleSort(Arr))
 }
+
+func TestMergeSort(t *testing.T) {
+	MergeSort(Arr, 0, 7)
+	fmt.Print(Arr)
+}
