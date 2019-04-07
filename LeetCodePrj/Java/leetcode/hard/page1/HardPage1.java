@@ -46,6 +46,8 @@ public class HardPage1 {
 
         MergeKSortedLists mergeKSortedLists = new MergeKSortedLists();
         ListNode[] lists = new ListNode[] {node1, node2, node3};
-        System.out.println(mergeKSortedLists.mergeKLists(lists));;
+
+        ListNode[] lists2 = new ListNode[] {null, null};
+        System.out.println(mergeKSortedLists.mergeKLists(lists2));;
     }
 }

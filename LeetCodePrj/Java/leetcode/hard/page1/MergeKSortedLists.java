@@ -4,12 +4,18 @@ import leetcode.common.ListNode;
 
 public class MergeKSortedLists {
     public ListNode mergeKLists(ListNode[] lists) {
-        if (lists.length == 0) return null;
-        if (lists.length == 1) return lists[0];
+        // find the non-null node
+        int i = 0;
+        ListNode sortedListHead = null;
+        for (; i < lists.length; i++) {
+            if (lists[i] != null) {
+                sortedListHead = lists[i];
+                break;
+            }
+        }
 
-        ListNode sortedListHead = lists[0];
-
-        for (int i = 1; i < lists.length; i++) {
+        i++;
+        for (; i < lists.length; i++) {
             ListNode tmpFast = sortedListHead;
             ListNode tmpSlow = sortedListHead;
             ListNode cmpNode = lists[i];
@@ -34,7 +40,7 @@ public class MergeKSortedLists {
                     cmpNode = cmpNodeNext;
                 }
             }
-            if (tmpFast == null) {
+            if (tmpFast == null && tmpSlow != null) {
                 tmpSlow.next = cmpNode;
             }
         }
