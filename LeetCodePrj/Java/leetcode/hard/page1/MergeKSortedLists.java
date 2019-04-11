@@ -4,6 +4,14 @@ import leetcode.common.ListNode;
 
 public class MergeKSortedLists {
     public ListNode mergeKLists(ListNode[] lists) {
+        return null;
+    }
+
+    private ListNode[] merge(ListNode[] list1, ListNode[] list2) {
+        return null;
+    }
+
+    private ListNode simpleMerge(ListNode[] lists) {
         // find the non-null node
         int i = 0;
         ListNode sortedListHead = null;
