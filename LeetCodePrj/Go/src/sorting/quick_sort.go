@@ -5,13 +5,13 @@ func QuickSort(arr []int, l int, r int) {
 		return
 	}
 
-	p := quickMerge(arr, l, r)
+	p := quick(arr, l, r)
 
 	QuickSort(arr, l, p-1)
 	QuickSort(arr, p+1, r)
 }
 
-func quickMerge(arr []int, l int, r int) int {
+func quick(arr []int, l int, r int) int {
 	j := l
 
 	var tmp int
