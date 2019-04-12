@@ -1,6 +1,10 @@
 package sorting
 
 func QuickSort(arr []int, l int, r int) {
+	if l > r {
+		return
+	}
+
 	p := quickMerge(arr, l, r)
 
 	QuickSort(arr, l, p-1)
@@ -10,14 +14,19 @@ func QuickSort(arr []int, l int, r int) {
 func quickMerge(arr []int, l int, r int) int {
 	j := l
 
+	var tmp int
 	for i := l; i < r; i++ {
 		if arr[i] < arr[r] {
-			tmp := arr[i]
+			tmp = arr[i]
 			arr[i] = arr[j]
 			arr[j] = tmp
 			j++
 		}
 	}
+
+	tmp = arr[r]
+	arr[r] = arr[j]
+	arr[j] = tmp
 
 	return j
 }
