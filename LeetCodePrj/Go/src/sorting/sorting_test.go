@@ -23,3 +23,8 @@ func TestMergeSort(t *testing.T) {
 	MergeSort(Arr, 0, 7)
 	fmt.Print(Arr)
 }
+
+func TestQuickSort(t *testing.T) {
+	QuickSort(Arr, 0, 7)
+	fmt.Print(Arr)
+}
