@@ -4,11 +4,36 @@ import leetcode.common.ListNode;
 
 public class MergeKSortedLists {
     public ListNode mergeKLists(ListNode[] lists) {
-        return null;
+        if (lists.length == 0) return null;
+
+        int step = 1;
+        while (step < lists.length) {
+            for (int i = 0; i < lists.length - step; i += step * 2) {
+                lists[i] = merge(lists[i], lists[i + step]);
+            }
+            step *= 2;
+        }
+
+        return lists[0];
     }
 
-    private ListNode[] merge(ListNode[] list1, ListNode[] list2) {
-        return null;
+    private ListNode merge(ListNode list1, ListNode list2) {
+        ListNode head = new ListNode(0);
+        ListNode node = head;
+        while (list1 != null && list2 != null) {
+            if (list1.val <= list2.val) {
+                node.next = list1;
+                list1 = list1.next;
+            } else {
+                node.next = list2;
+                list2 = list2.next;
+            }
+
+            node = node.next;
+        }
+        node.next = list1 != null ? list1 : list2;
+
+        return head.next;
     }
 
     private ListNode simpleMerge(ListNode[] lists) {

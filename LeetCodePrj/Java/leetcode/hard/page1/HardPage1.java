@@ -44,10 +44,19 @@ public class HardPage1 {
         ListNode node3 = new ListNode(2);
         node3.next = new ListNode(6);
 
+        ListNode node4 = new ListNode(-1);
+        node4.next = new ListNode(5);
+        node4.next.next = new ListNode(11);
+
+        ListNode node5 = new ListNode(6);
+        node5.next = new ListNode(10);
+
         MergeKSortedLists mergeKSortedLists = new MergeKSortedLists();
         ListNode[] lists = new ListNode[] {node1, node2, node3};
 
-        ListNode[] lists2 = new ListNode[] {null, null};
-        System.out.println(mergeKSortedLists.mergeKLists(lists2));;
+        ListNode[] lists2 = new ListNode[] {null, new ListNode(1)};
+
+        ListNode[] list3 = new ListNode[] {null, node4, null, node5};
+        System.out.println(mergeKSortedLists.mergeKLists(list3));
     }
 }
