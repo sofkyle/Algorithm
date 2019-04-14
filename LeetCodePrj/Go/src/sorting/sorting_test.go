@@ -28,3 +28,8 @@ func TestQuickSort(t *testing.T) {
 	QuickSort(Arr, 0, 7)
 	fmt.Print(Arr)
 }
+
+func TestQuickSortSearch(t *testing.T) {
+	val := QuickSortSearch(Arr, 0, 7, 4)
+	fmt.Print(val)
+}
