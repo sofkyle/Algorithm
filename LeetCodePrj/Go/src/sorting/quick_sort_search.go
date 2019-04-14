@@ -7,10 +7,10 @@ func QuickSortSearch(arr []int, l int, r int, n int) int {
 
 	p := quickSearch(arr, l, r)
 
-	if p == n {
+	if p == n-1 {
 		return arr[p]
 	}
-	if p < n {
+	if p > n-1 {
 		return QuickSortSearch(arr, l, p-1, n)
 	} else {
 		return QuickSortSearch(arr, p+1, r, n)
