@@ -5,13 +5,13 @@ func QuickSort(arr []int, l int, r int) {
 		return
 	}
 
-	p := quick(arr, l, r)
+	p := partition(arr, l, r)
 
 	QuickSort(arr, l, p-1)
 	QuickSort(arr, p+1, r)
 }
 
-func quick(arr []int, l int, r int) int {
+func partition(arr []int, l int, r int) int {
 	j := l
 
 	var tmp int
