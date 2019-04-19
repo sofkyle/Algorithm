@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 
-var Arr = []int{5, 1, 3, 2, 6, 8, 4, 7}
+var Arr = []int{7, 1, 3, 4, 2, 8, 4, 7}
 
 func TestSelectSort(t *testing.T) {
 	fmt.Println(SelectionSort(Arr))
