@@ -50,7 +50,7 @@ func partition2(arr []int, l int, r int) int {
 			}
 		}
 
-		if i <= r {
+		if i <= j {
 			tmp := arr[i]
 			arr[i] = arr[j]
 			arr[j] = tmp
@@ -59,6 +59,8 @@ func partition2(arr []int, l int, r int) int {
 			} else if j == mid {
 				mid = i
 			}
+		} else {
+			i--
 		}
 	}
 
