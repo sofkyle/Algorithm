@@ -80,4 +80,12 @@ public class EasyPage3 {
         };
         System.out.println(numberOfBoomerangs.numberOfBoomerangs(array));
     }
+
+    @Test
+    public void testHeaters() {
+        Heaters heatersSolution = new Heaters();
+        int[] houses = new int[]{1,2,3};
+        int[] heaters = new int[]{2};
+        System.out.println(heatersSolution.findRadius(houses, heaters));
+    }
 }
