@@ -59,4 +59,11 @@ public class HardPage1 {
         ListNode[] list3 = new ListNode[] {null, node4, null, node5};
         System.out.println(mergeKSortedLists.mergeKLists(list3));
     }
+
+    @Test
+    public void testMaximumGap() {
+        MaximumGap maximumGap = new MaximumGap();
+        int[] arr = new int[]{3,6,9,1};
+        System.out.println(maximumGap.maximumGap(arr));
+    }
 }
