@@ -17,19 +17,21 @@ public class MaximumGap {
         int bucketSize = Math.max(1, (maxi - mini) / ((int) nums.length - 1));
         int bucketNum = (maxi - mini) / bucketSize + 1;
 
-        Vector<Bucket> buckets = new Vector<>(bucketSize);
+        Vector<Bucket> buckets = new Vector<>();
+        buckets.setSize(bucketNum);
 
         for (int num : nums) {
             int bukcetIdx = (num - mini) / bucketSize;
-            Bucket bucket = new Bucket();
-            bucket.used = true;
+            Bucket bucket = buckets.get(bukcetIdx);
+            if (bucket == null) bucket = new Bucket();
             bucket.minVal = Math.min(num, bucket.minVal);
             bucket.maxVal = Math.max(num, bucket.maxVal);
+            buckets.set(bukcetIdx, bucket);
         }
 
         int prevBuceketMax = mini, maxGap = 0;
         for (Bucket bucket : buckets) {
-            if (!bucket.used) {
+            if (bucket == null) {
                 continue;
             }
 
@@ -41,7 +43,6 @@ public class MaximumGap {
     }
 
     class Bucket {
-        boolean used = false;
         int minVal = Integer.MAX_VALUE;
         int maxVal = Integer.MIN_VALUE;
     }
