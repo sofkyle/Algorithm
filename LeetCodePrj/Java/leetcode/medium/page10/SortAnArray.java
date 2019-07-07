@@ -14,23 +14,23 @@ public class SortAnArray {
         }
 
         int length = nums.length;
-        int bucketSize = (max - min) / length;
+        int bucketSize = Math.max(1, (max - min) / length);
         int bucketNum = (max - min) / bucketSize + 1;
         int[][] bucket = new int[bucketNum][bucketSize];
-        boolean[][] store = new boolean[bucketNum][bucketSize];
+        int[][] storeCount = new int[bucketNum][bucketSize];
 
         for (int num : nums) {
             int i = (num - min) / bucketSize;
             int j = (num - min) % bucketSize;
             bucket[i][j] = num;
-            store[i][j] = true;
+            storeCount[i][j]++;
         }
 
         int[] sortedArray = new int[length];
         int k = 0;
         for (int i = 0; i < bucketNum; i++) {
             for (int j = 0; j < bucketSize; j++) {
-                if (store[i][j]) {
+                for (int count = 0; count < storeCount[i][j]; count++) {
                     sortedArray[k++] = bucket[i][j];
                 }
             }
