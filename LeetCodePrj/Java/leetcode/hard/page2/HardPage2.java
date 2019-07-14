@@ -18,4 +18,10 @@ public class HardPage2 {
         lfuCache.get(1);
         lfuCache.get(4);
     }
+
+    @Test
+    public void testPoorPigs() {
+        PoorPigs poorPigs = new PoorPigs();
+        System.out.println(poorPigs.poorPigs(1000, 15, 60));
+    }
 }
