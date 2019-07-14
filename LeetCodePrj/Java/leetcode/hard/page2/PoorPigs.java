@@ -7,8 +7,7 @@ public class PoorPigs {
         int digits = 1;
         int base = minutesToTest / minutesToDie + 1;
         int timer = base;
-        while(buckets>timer)
-        {
+        while(buckets>timer) {
             timer*=base;
             digits+=1;
         }
