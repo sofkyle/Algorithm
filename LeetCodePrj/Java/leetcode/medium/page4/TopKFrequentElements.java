@@ -26,7 +26,7 @@ public class TopKFrequentElements {
 
     private List<Integer> bucketSort(Map<Integer, Integer> frequency) {
         //  get max num
-        int maxNum = 0;
+        int maxNum = Integer.MIN_VALUE;
         for (HashMap.Entry<Integer, Integer> entry : frequency.entrySet()) {
             if (entry.getValue() > maxNum) {
                 maxNum = entry.getValue();
@@ -45,9 +45,11 @@ public class TopKFrequentElements {
         }
 
         // sort
-        List<Integer> sortedFrequency = new ArrayList<>(maxNum + 1);
+        List<Integer> sortedFrequency = new ArrayList<>();
         for (int i = maxNum; i > 0; i--) {
-            sortedFrequency.addAll(bucket[i]);
+            if (bucket[i] != null) {
+                sortedFrequency.addAll(bucket[i]);
+            }
         }
 
         return sortedFrequency;

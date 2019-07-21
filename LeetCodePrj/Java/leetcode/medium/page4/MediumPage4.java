@@ -6,6 +6,6 @@ public class MediumPage4 {
     @Test
     public void testTopKFrequentElements(){
         TopKFrequentElements topKFrequentElements = new TopKFrequentElements();
-        System.out.println(topKFrequentElements.topKFrequent(new int[]{1,2}, 2));
+        System.out.println(topKFrequentElements.topKFrequent(new int[]{-1,-1}, 1));
     }
 }
