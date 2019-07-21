@@ -54,19 +54,4 @@ public class TopKFrequentElements {
 
         return sortedFrequency;
     }
-
-    private List<Integer> treeMapSort(Map<Integer, Integer> frequency) {
-        TreeMap<Integer, Integer> treeMap = new TreeMap<>();
-        for (HashMap.Entry<Integer, Integer> entry : frequency.entrySet()) {
-            treeMap.put(entry.getValue(), entry.getKey());
-        }
-
-        // sort
-        List<Integer> sortedFrequency = new ArrayList<>();
-        for (int i = 0; i < treeMap.size(); i++) {
-            sortedFrequency.add(treeMap.firstKey());
-        }
-
-        return sortedFrequency;
-    }
 }
