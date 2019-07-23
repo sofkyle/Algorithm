@@ -14,7 +14,7 @@ public class TopKFrequentElements {
             }
         }
 
-        List<Integer> sortedFrequency = bucketSort(frequency);
+        List<Integer> sortedFrequency = heapSort(frequency);
 
         List<Integer> result = new Vector<>(1);
         for (int i = 0; i < k; i++) {
@@ -50,6 +50,23 @@ public class TopKFrequentElements {
             if (bucket[i] != null) {
                 sortedFrequency.addAll(bucket[i]);
             }
+        }
+
+        return sortedFrequency;
+    }
+
+    private List<Integer> heapSort(Map<Integer, Integer> frequency) {
+        // build heap
+        PriorityQueue<Integer> heap = new PriorityQueue<>((e1,e2) -> frequency.get(e2) - frequency.get(e1));
+
+        for (Map.Entry<Integer, Integer> entry : frequency.entrySet()) {
+            heap.offer(entry.getKey());
+        }
+
+        // sort
+        List<Integer> sortedFrequency = new ArrayList<>();
+        for (int i = heap.size(); i > 0; i--) {
+            sortedFrequency.add(heap.poll());
         }
 
         return sortedFrequency;
