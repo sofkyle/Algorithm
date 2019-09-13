@@ -6,7 +6,8 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 public class PrintInOrder {
-    private volatile boolean second, third;
+    private Semaphore semaphoreSecond = new Semaphore(0);
+    private Semaphore semaphoreThird = new Semaphore(0);
 
     public PrintInOrder() {
 
@@ -15,18 +16,18 @@ public class PrintInOrder {
     public void first(Runnable printFirst) throws InterruptedException {
         // printFirst.run() outputs "first". Do not change or remove this line.
         printFirst.run();
-        second = true;
+        semaphoreSecond.release();
     }
 
     public void second(Runnable printSecond) throws InterruptedException {
-        while (second);
+        semaphoreSecond.acquire();
         // printSecond.run() outputs "second". Do not change or remove this line.
         printSecond.run();
-        third = true;
+        semaphoreThird.release();
     }
 
     public void third(Runnable printThird) throws InterruptedException {
-        while (third);
+        semaphoreThird.acquire();
         // printThird.run() outputs "third". Do not change or remove this line.
         printThird.run();
     }
