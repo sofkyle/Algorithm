@@ -6,8 +6,8 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 public class PrintInOrder {
-    private Semaphore semaphoreSecond = new Semaphore(1);
-    private Semaphore semaphoreThird = new Semaphore(1);
+    private static Semaphore semaphoreSecond = new Semaphore(1);
+    private static Semaphore semaphoreThird = new Semaphore(1);
 
     public PrintInOrder() {
         try {
