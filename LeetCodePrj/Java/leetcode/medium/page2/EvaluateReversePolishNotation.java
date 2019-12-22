@@ -1,32 +1,32 @@
 package leetcode.medium.page2;
 
-import java.util.Stack;
-
 public class EvaluateReversePolishNotation {
-    public int evalRPN(String[] tokens) {
-        Stack<Integer> stack = new Stack<>();
+    int index;
 
-        for (String c : tokens) {
-            if (c.equals("+") || c.equals("-") || c.equals("*") || c.equals("/")) {
-                int result = 0;
-                Integer a = stack.pop();
-                Integer b = stack.pop();
-                result += calculate(b, a, c);
-                stack.push(result);
-            } else {
-                stack.push(Integer.valueOf(c));
-            }
-        }
-        return stack.pop();
+    public int evalRPN(String[] tokens) {
+        index = tokens.length - 1;
+        return recurse(tokens);
     }
 
-    private int calculate(int a, int b, String operator) {
-        switch (operator) {
-            case "+": return a + b;
-            case "-": return a - b;
-            case "*": return a * b;
-            case "/": return a / b;
-            default: return 0;
+    private int recurse(String[] tokens) {
+        if (index < 0) {
+            return 0;
+        }
+
+        String token = tokens[index];
+        index--;
+
+        if (token.equals("+")) {
+            return recurse(tokens) + recurse(tokens);
+        } else if (token.equals("-")) {
+            return  - recurse(tokens) + recurse(tokens);
+        } else if (token.equals("*")) {
+            return recurse(tokens) * recurse(tokens);
+        } else if (token.equals("/")) {
+            int deno = recurse(tokens);
+            return recurse(tokens)/deno;
+        } else {
+            return Integer.parseInt(token);
         }
     }
 }
