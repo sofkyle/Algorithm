@@ -17,4 +17,10 @@ public class MediumPage2 {
         ListNode sortedList = sortList.sortList(node);
     }
 
+    @Test
+    public void testEvalRPN() {
+        String[] input = new String[] {"2", "1", "+", "3", "*"};
+        EvaluateReversePolishNotation evalRPN = new EvaluateReversePolishNotation();
+        System.out.println(evalRPN.evalRPN(input));
+    }
 }
