@@ -1,21 +1,64 @@
 package leetcode.medium.page5;
 
-import java.util.Collections;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 public class SortCharactersByFrequency {
-    int[] bucket = new int[52];
+    Map<Character,Bucket> buckets = new HashMap();
 
     public String frequencySort(String s) {
         for (char ch : s.toCharArray()) {
-            if (ch >= 'a' && ch <= 'z') {
-                bucket[ch - 'a']++;
-            } else if (ch >= 'A' && ch <= 'Z') {
-                bucket[ch - 'A' + 26]++;
+            Bucket bucket;
+            if (!buckets.containsKey(ch)) {
+                bucket = new Bucket(ch);
+             } else {
+                bucket = buckets.get(ch);
+            }
+
+            bucket.increment();
+            buckets.put(ch, bucket);
+        }
+
+        Bucket[] sortedBucketArr = new Bucket[buckets.size()];
+        sortedBucketArr = buckets.values().toArray(sortedBucketArr);
+        Arrays.sort(sortedBucketArr);
+
+        StringBuilder sb  =  new StringBuilder();
+        for (Bucket bucket : sortedBucketArr) {
+            for (int i = 0; i < bucket.count; i++) {
+                sb.append(bucket.alpha);
             }
         }
 
-        Collections.so
+        return sb.toString();
+    }
 
-        return null;
+    class Bucket implements Comparable<Integer> {
+        char alpha;
+        Integer count = 0;
+
+        public Bucket(char alpha) {
+            this.alpha = alpha;
+        }
+
+        public void increment() {
+            count++;
+        }
+
+        @Override
+        public int compareTo(Integer o) {
+            return count - o;
+        }
+
+        @Override
+        public int hashCode() {
+            return alpha;
+        }
+
+        @Override
+        public boolean equals(Object bucket) {
+            return alpha == ((Bucket) bucket).alpha;
+        }
     }
 }
