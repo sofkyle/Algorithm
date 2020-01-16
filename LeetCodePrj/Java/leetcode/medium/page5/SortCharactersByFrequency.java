@@ -34,7 +34,7 @@ public class SortCharactersByFrequency {
         return sb.toString();
     }
 
-    class Bucket implements Comparable<Integer> {
+    class Bucket implements Comparable<Bucket> {
         char alpha;
         Integer count = 0;
 
@@ -47,18 +47,8 @@ public class SortCharactersByFrequency {
         }
 
         @Override
-        public int compareTo(Integer o) {
-            return count - o;
-        }
-
-        @Override
-        public int hashCode() {
-            return alpha;
-        }
-
-        @Override
-        public boolean equals(Object bucket) {
-            return alpha == ((Bucket) bucket).alpha;
+        public int compareTo(Bucket o) {
+            return o.count - count;
         }
     }
 }
