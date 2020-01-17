@@ -4,7 +4,8 @@ import java.util.*;
 
 public class FirstUniqueCharacterInAString {
 
-    int[] alpha = new int[128];
+    private int[] alpha = new int[128];
+    private int[] initPos = new int[128];
 
     public int firstUniqChar(String s) {
         PriorityQueue<Integer> pos = new PriorityQueue<>();
@@ -16,8 +17,9 @@ public class FirstUniqueCharacterInAString {
 
             if (alpha[chars[i]] == 1) {
                 pos.offer(i);
-            } else {
-                pos.remove(i);
+                initPos[chars[i]] = i;
+            } else if (alpha[chars[i]] == 2) {
+                pos.remove(initPos[chars[i]]);
             }
         }
 

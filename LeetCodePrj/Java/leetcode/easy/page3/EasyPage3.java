@@ -88,4 +88,11 @@ public class EasyPage3 {
         int[] heaters = new int[]{2};
         System.out.println(heatersSolution.findRadius(houses, heaters));
     }
+
+    @Test
+    public void testFirstUniqueCharacterInAString() {
+        FirstUniqueCharacterInAString firstUniqueCharacterInAString = new FirstUniqueCharacterInAString();
+        String s = "loveleetcode";
+        System.out.println(firstUniqueCharacterInAString.firstUniqChar(s));
+    }
 }
