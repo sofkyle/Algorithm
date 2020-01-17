@@ -4,29 +4,19 @@ import java.util.*;
 
 public class FirstUniqueCharacterInAString {
 
-    private int[] alpha = new int[128];
-    private int[] initPos = new int[128];
-
     public int firstUniqChar(String s) {
-        PriorityQueue<Integer> pos = new PriorityQueue<>();
+        int[] countArr = new int[26];
 
-        char[] chars = s.toCharArray();
+        for (char c : s.toCharArray()) {
+            countArr[c - 97]++;
+        }
 
-        for (int i = 0; i < chars.length; i++) {
-            alpha[chars[i]]++;
-
-            if (alpha[chars[i]] == 1) {
-                pos.offer(i);
-                initPos[chars[i]] = i;
-            } else if (alpha[chars[i]] == 2) {
-                pos.remove(initPos[chars[i]]);
+        for (int i = 0; i < s.length(); i++) {
+            if (countArr[s.charAt(i) - 97] == 1) {
+                return i;
             }
         }
 
-        if (pos.isEmpty()) {
-            return -1;
-        } else {
-            return pos.poll();
-        }
+        return -1;
     }
 }

@@ -63,12 +63,6 @@ public class EasyPage2 {
     }
 
     @Test
-    public void testFirstUniqueCharacterInAString() {
-        FirstUniqueCharacterInAString firstUniqueCharacterInAString = new FirstUniqueCharacterInAString();
-        firstUniqueCharacterInAString.firstUniqChar("leetcode");
-    }
-
-    @Test
     public void testFindTheDifference() {
         FindTheDifference findTheDifference = new FindTheDifference();
         String s = "aa";
