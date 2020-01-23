@@ -1,7 +1,7 @@
 package leetcode.hard.page5;
 
-public class DesignSkiplist {
-    public DesignSkiplist() {
+public class Skiplist {
+    public Skiplist() {
 
     }
 
