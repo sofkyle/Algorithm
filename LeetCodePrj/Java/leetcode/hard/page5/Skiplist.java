@@ -18,12 +18,12 @@ public class Skiplist {
     public boolean search(int target) {
         Node p = head;
         for (int i = levelCount - 1; i >= 0; --i) {
-            while (Objects.nonNull(p.forwards[i]) && p.forwards[i].data < target) {
-                p = p.forwards[i];
+            while (Objects.nonNull(p.next[i]) && p.next[i].data < target) {
+                p = p.next[i];
             }
         }
 
-        if (Objects.nonNull(p.forwards[0]) && p.forwards[0].data == target) {
+        if (Objects.nonNull(p.next[0]) && p.next[0].data == target) {
             return true;
         } else {
             return false;
@@ -31,52 +31,58 @@ public class Skiplist {
     }
 
     public void add(int num) {
-        int level = Objects.isNull(head.forwards[0]) ? 1 : randomLevel();
+        int level = Objects.isNull(head.next[0]) ? 1 : randomLevel();
 
         if (level > levelCount) {
             level = ++levelCount;
         }
         Node newNode = new Node(level);
         newNode.data = num;
-        Node p = head;
-
-        for (int i = levelCount - 1; i >= 0; --i) {
-            while (Objects.nonNull(p.forwards[i]) && p.forwards[i].data < num) {
-                p = p.forwards[i];
-            }
-
-            if (Objects.isNull(p.forwards[i])) {
-                p.forwards[i] = newNode;
-            } else {
-                Node next = p.forwards[i];
-                p.forwards[i] = newNode;
-                newNode.forwards[i] = next;
-            }
+        Node update[] = new Node[level];
+        for (int i = 0; i < level; ++i) {
+            update[i] = head;
         }
 
+        Node p = head;
+        for (int i = level - 1; i >= 0; --i) {
+            while (Objects.nonNull(p.next[i]) && p.next[i].data < num) {
+                p = p.next[i];
+            }
+            update[i] = p;
+        }
+
+        for (int i = 0; i < level; ++i) {
+            newNode.next[i] = update[i].next[i];
+            update[i].next[i] = newNode;
+        }
     }
 
     public boolean erase(int num) {
         Node[] update = new Node[levelCount];
         Node p = head;
         for (int i = levelCount - 1; i >= 0; --i) {
-            while (Objects.nonNull(p.forwards[i]) && p.forwards[i].data < num) {
-                p = p.forwards[i];
+            while (Objects.nonNull(p.next[i]) && p.next[i].data < num) {
+                p = p.next[i];
             }
             update[i] = p;
         }
 
-        if (Objects.nonNull(p.forwards[0]) && p.forwards[0].data == num) {
+        if (Objects.nonNull(p.next[0]) && p.next[0].data == num) {
             for (int i = levelCount - 1; i >= 0; --i) {
-                if (Objects.nonNull(update[i].forwards[i]) && update[i].forwards[i].data == num) {
-                    update[i].forwards[i] = update[i].forwards[i].forwards[i];
+                if (Objects.nonNull(update[i].next[i]) && update[i].next[i].data == num) {
+                    update[i].next[i] = update[i].next[i].next[i];
                 }
             }
+            return true;
+        } else {
+            return false;
         }
-
-        return true;
     }
 
+    /**
+     * Need to optimize
+     * @return
+     */
     private int randomLevel() {
         return (int) Math.floor(r.nextInt(MAX_LEVEL)) + 1;
     }
@@ -84,10 +90,10 @@ public class Skiplist {
     class Node {
         private int data = -1;
 
-        private Node[] forwards;
+        private Node[] next;
 
         public Node(int level) {
-            forwards = new Node[level];
+            next = new Node[level];
         }
     }
 }
