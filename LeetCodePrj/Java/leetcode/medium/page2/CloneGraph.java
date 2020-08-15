@@ -36,7 +36,7 @@ public class CloneGraph {
 
         while (!queue.isEmpty()) {
             Node oldNode = queue.poll();
-            Node newNode = visited.getOrDefault(oldNode, new Node(oldNode.val));
+            Node newNode = visited.get(oldNode);
 
             for (Node oldSubNode : oldNode.neighbors) {
                 Node newSubNode = null;
